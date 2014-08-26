@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://jsfiddle.net/jawLmp4x/show/ -->
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>demo</title>
+  
+  <script type="text/javascript" src="lib/Dropdown.js"></script>
+
+  <style type="text/css">
+    .dd {
+    display: inline-block;
+}
+    .dd div {
+        cursor: pointer;
+        padding: 5px 10px;
+        background: #ccc;
+    }
+        .dd.expanded div {
+            color: #fff;
+            background: #333;
+        }
+
+    .dd ul {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        box-shadow: 0 1px 3px rgba(0,0,0,.5);
+        list-style: none;
+        display: none;
+    }
+
+    .expanded ul {
+        display: block;
+    }
+
+        .dd li {
+            cursor: pointer;
+            padding: 5px 20px;
+        }
+            .dd li:hover {
+                color: #fff;
+                background: #666;
+            }
+
+            .dd li[disabled] {
+                color: #ccc;
+                cursor: text;
+                background: none;
+            }
+
+
+  </style>
+</head>
+<body>
+  <div class="dd expanded">
+    <div>Menu</div>
+    <ul>
+        <li>item 1</li>
+        <li disabled="true">item 2</li>
+        <li><b>item 3</b></li>
+        <li><i><a href="https://e.mail.ru/" target="_blank">item 4</a></i></li>
+    </ul>
+</div>
+
+<script>
+    (function (Dropdown) {
+        var dd;
+
+        dd = new Dropdown({
+            el: document.querySelector('.dd'),
+            openBy: 'hover',
+            wait: 400,
+            onOpen: console.log.bind(console, 'Dropdown is opened'),
+            onClose: console.log.bind(console, 'Dropdown is closed'),
+            onSelect: console.log.bind(console, 'Dropdown selected:')
+        });
+    }(
+        Dropdown
+    ));
+</script>
+
+</body></html>
